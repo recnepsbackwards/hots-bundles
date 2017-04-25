@@ -62,7 +62,7 @@ $(document).ready(function() {
   function inject() {
     console.log(results)
     for(var i = results.length-1; i > -1; i--) {
-      $('#injectHTML').append('<li>' +  '<div><b>Bundle Name:</b> ' + results[i].arrayName + '</div>' + '<div><b>Number of heroes gained:</b> ' + results[i].count + '</div>' + '<div><b>List of heroes gained:</b> ' + results[i].heroList + '</div>' + '</li>');
+      $('#injectHTML').append('<li>' +  '<div><b>Bundle Name:</b> ' + results[i].arrayName + '</div>' + '<div><b>Number of heroes gained:</b> ' + results[i].count + '</div>' + '<div><b>List of heroes gained:</b> ' + results[i].heroList.join(", ") + '</div>' + '</li>');
     }
   }
   for(var i=0; i < allHeroes.length; i++) {

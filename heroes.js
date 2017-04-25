@@ -9,3 +9,20 @@ var tankList = ['Alarak', 'Anub-arak', 'Artanis', 'Arthas', 'Chen', 'Diablo', 'D
 var myList = ['Zeratul', 'Valla', 'Nazeebo', 'E.T.C.', 'Nova', 'Stiches', 'Li-Li', 'Xul', 'Illidan', 'Sgt. Hammer', 'Zagara', 'Sonya', 'Sylvanas', 'Muradin', 'Murky', 'Cho', 'Gall', 'Tassadar', 'Raynor', 'Jaina', 'Falstad', 'Malfurion', 'Greymane', 'Kerrigan', 'Tracer', 'Azmodan', 'Li-Ming', 'Diablo', 'Gaz', 'Zarya', 'Auriel']
 
 var userList = [];
+
+Array.prototype.diff = function(arr2) {
+    var ret = [];
+    this.sort();
+    arr2.sort();
+    for(var i = 0; i < this.length; i += 1) {
+        if(arr2.indexOf( this[i] ) > -1){
+            ret.push( this[i] );
+        }
+    }
+    return ret;
+};
+
+console.log( dmgList.diff(myList).length );
+console.log( flexList.diff(myList).length );
+console.log( supportList.diff(myList).length );
+console.log( tankList.diff(myList).length );

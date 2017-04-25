@@ -1,47 +1,52 @@
-var array = [['Alarak', 'Chromie', 'Falstad', 'Greymane', 'Gul-dan', 'Kael-thas', 'Kerrigan', 'Li-Ming', 'Lunara', 'Nazeebo', 'Nova', 'Raynor', 'Sylvanas', 'The Butcher', 'Tracer', 'Tychus', 'Valeera', 'Valla', 'Zeratul', 'Zul-jin'],
+var array = [["Alarak", "Chromie", "Falstad", "Greymane", "Gul'dan", "Kael'thas", "Kerrigan", "Li-Ming", "Lunara", "Nazeebo", "Nova", "Raynor", "Sylvanas", "The Butcher", "Tracer", "Tychus", "Valeera", "Valla", "Zeratul", "Zul'jin"],
 
-['Abathur', 'Arthas', 'Azmodan', 'Brightwing', 'Diablo', 'E.T.C.', 'Greymane', 'Johanna', 'Kerrigan', 'Li-Li', 'Li-Ming', 'Lt. Morales', 'Nazeebo', 'Rehgar', 'Rexxar', 'Sylvanas', 'The Lost Vikings', 'Tychus', 'Varian', 'Zul-jin'],
+["Abathur", "Arthas", "Azmodan", "Brightwing", "Diablo", "E.T.C.", "Greymane", "Johanna", "Kerrigan", "Li Li", "Li-Ming", "Lt. Morales", "Nazeebo", "Rehgar", "Rexxar", "Sylvanas", "The Lost Vikings", "Tychus", "Varian", "Zul'jin"],
 
-['Abathur', 'Auriel', 'Brightwing', 'Chen', 'Dehaka', 'E.T.C.', 'Johanna', 'Kharazim', 'Li-Li', 'Lt. Morales', 'Lucio', 'Malfurion', 'Medivh', 'Muradin', 'Rehgar', 'Stitches', 'Tassadar', 'Tyrael', 'Uther', 'Zarya'],
+["Abathur", "Auriel", "Brightwing", "Chen", "Dehaka", "E.T.C.", "Johanna", "Kharazim", "Li Li", "Lt. Morales", "Lúcio", "Malfurion", "Medivh", "Muradin", "Rehgar", "Stitches", "Tassadar", "Tyrael", "Uther", "Zarya"],
 
-['Alarak', 'Anub-arak', 'Artanis', 'Arthas', 'Chen', 'Diablo', 'Dehaka', 'Illidan', 'Kharazim', 'Leoric', 'Muradin', 'Ragnaros', 'Rexxar', 'Samuro', 'Sonya', 'Stitches', 'Thrall', 'Varian', 'Xul', 'Zarya']]
+["Alarak", "Anub'arak", "Artanis", "Arthas", "Chen", "Diablo", "Dehaka", "Illidan", "Kharazim", "Leoric", "Muradin", "Ragnaros", "Rexxar", "Samuro", "Sonya", "Stitches", "Thrall", "Varian", "Xul", "Zarya"]]
 
-var myList = ['Zeratul', 'Valla', 'Nazeebo', 'E.T.C.', 'Nova', 'Stiches', 'Li-Li', 'Xul', 'Illidan', 'Sgt. Hammer', 'Zagara', 'Sonya', 'Sylvanas', 'Muradin', 'Murky', 'Cho', 'Gall', 'Tassadar', 'Raynor', 'Jaina', 'Falstad', 'Malfurion', 'Greymane', 'Kerrigan', 'Tracer', 'Azmodan', 'Li-Ming', 'Diablo', 'Gaz', 'Zarya', 'Auriel'];
+var myList = ["Zeratul", "Valla", "Nazeebo", "E.T.C.", "Nova", "Stiches", "Li Li", "Xul", "Illidan", "Sgt. Hammer", "Zagara", "Sonya", "Sylvanas", "Muradin", "Murky", "Cho", "Gall", "Tassadar", "Raynor", "Jaina", "Falstad", "Malfurion", "Greymane", "Kerrigan", "Tracer", "Azmodan", "Li-Ming", "Diablo", "Gaz", "Zarya", "Auriel"];
 
-// var userList = [];
+var allHeroes = ["Abathur", "Alarak", "Anub'arak", "Artanis", "Arthas", "Auriel", "Azmodan", "Brightwing", "Cassia", "Chen", "Cho'gall", "Chromie", "Dehaka", "Diablo", "E.T.C.", "Falstad", "Gazlowe", "Genji", "Greymane", "Gul'dan", "Illidan", "Jaina", "Johanna", "Kael'thas", "Kerrigan", "Kharazim", "Leoric", "Li Li", "Li-Ming", "Lt. Morales", "Lunara", "Lúcio", "Malfurion", "Medivh", "Muradin", "Murky", "Nazeebo", "Nova", "Probius", "Ragnaros", "Raynor", "Rehgar", "Rexxar", "Samuro", "Sgt. Hammer", "Sonya", "Stitches", "Sylvanas", "Tassadar", "The Butcher", "The Lost Vikings", "Thrall", "Tracer", "Tychus", "Tyrael", "Tyrande", "Uther", "Valeera", "Valla", "Varian", "Xul", "Zagara", "Zarya", "Zeratul", "Zul'jin"];
+
+var userList = [];
 
 var results = [];
+var order = function() {
+  for(var i=0; i<4; i++) {
+    var myObj = {};
+    myObj.count = difference(array[i], userList).length;
+    myObj.heroList = difference(array[i], userList);
+    switch (i) {
+      case 0:
+        myObj.arrayName = "Assassin";
 
-for(var i=0; i<4; i++) {
-  var myObj = {};
-  myObj.count = difference(array[i], myList).length;
-  switch (i) {
-    case 0:
-      myObj.arrayName = "Assassin";
+        break;
+      case 1:
+        myObj.arrayName = "Flex";
 
-      break;
-    case 1:
-      myObj.arrayName = "Flex";
+        break;
+      case 2:
+        myObj.arrayName = "Support & Specialist";
 
-      break;
-    case 2:
-      myObj.arrayName = "Support & Specialist";
+        break;
+      case 3:
+        myObj.arrayName = "Tanks & Bruisers";
 
-      break;
-    case 3:
-      myObj.arrayName = "Tanks & Bruisers";
+        break;
+      default:
+        break;
 
-      break;
-    default:
-      break;
-
+    }
+    results.push(myObj)
   }
-  results.push(myObj)
+
+  results.sort(function(a, b) {
+      return a.count - b.count;
+  });
 }
 
-results.sort(function(a, b) {
-    return a.count - b.count;
-});
 
 function difference(a1, a2) {
   var result = [];
@@ -53,17 +58,35 @@ function difference(a1, a2) {
   return result;
 }
 
-var newData;
-
 $(document).ready(function() {
-  $.ajax({
-    url: "https://api.hotslogs.com/Public/Data/Heroes"
-  }).done(function(data) {
-    newData = data;
-    for(var i = 0; i< newData.length; i++) {
-      $('#injectJS').append(newData.responseJSON["0"].PrimaryName);
+  function inject() {
+    console.log(results)
+    for(var i = results.length-1; i > -1; i--) {
+      $('#injectHTML').append('<li>' +  '<div><b>Bundle Name:</b> ' + results[i].arrayName + '</div>' + '<div><b>Number of heroes gained:</b> ' + results[i].count + '</div>' + '<div><b>List of heroes gained:</b> ' + results[i].heroList + '</div>' + '</li>');
     }
-
+  }
+  for(var i=0; i < allHeroes.length; i++) {
+    $('#allHeroes').append("<input type='checkbox' class='hero' name='checkbox' value=" + allHeroes[i] + ">" + allHeroes[i] + "<br>");
+  }
+  $('#submit').on('click', function(){
+    var checkedValue = $('.hero:checked');
+    for (var i = 0; i <checkedValue.length; i++) {
+      userList.push(checkedValue[i].value);
+    }
+    order();
+    inject();
   });
-
 });
+
+// $(document).ready(function() {
+//   $.ajax({
+//     url: "https://api.hotslogs.com/Public/Data/Heroes"
+//   }).done(function(data) {
+//     newData = data;
+//     for(var i = 0; i< newData.length; i++) {
+//       $('#injectJS').append(newData.responseJSON["0"].PrimaryName);
+//     }
+//
+//   });
+//
+// });

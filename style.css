@@ -1,0 +1,39 @@
+h1 {
+  padding-left:20px;
+}
+
+#wrapper {
+  padding:20px;
+}
+
+#allHeroes {
+  width:100%;
+  height:100%;
+  overflow:scroll;
+}
+
+.container {
+  float:left;
+  height:500px;
+  width:200px;
+  position: relative;
+}
+
+#submit {
+  position:absolute;
+  right:80px;
+  bottom:-37px;
+}
+
+#injectHTML {
+  width:800px;
+  float:left;
+}
+
+li div {
+  padding-bottom: 5px;
+}
+
+li {
+  padding-bottom: 15px;
+}

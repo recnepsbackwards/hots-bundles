@@ -54,7 +54,7 @@ $(document).ready(function() {
     url: "https://api.hotslogs.com/Public/Data/Heroes"
   }).done(function(data) {
     for(var i = 0; i<data.length; i++) {
-      $('#injectJS').append(data.PrimaryName);
+      $('#injectJS').append(data.responseJSON["0"].PrimaryName);
     }
 
   });

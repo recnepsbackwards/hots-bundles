@@ -2,6 +2,10 @@ h1 {
   padding-left:20px;
 }
 
+span {
+  font-size: 13px;
+}
+
 #wrapper {
   padding:20px;
   min-width:1200px;
@@ -23,7 +27,7 @@ h1 {
 #submit {
   position:absolute;
   right:80px;
-  bottom:-37px;
+  bottom:-47px;
 }
 
 #injectHTML {

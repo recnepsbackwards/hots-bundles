@@ -22,7 +22,7 @@ Array.prototype.diff = function(arr2) {
     return ret;
 };
 
-console.log( dmgList.diff(myList).length );
-console.log( flexList.diff(myList).length );
-console.log( supportList.diff(myList).length );
-console.log( tankList.diff(myList).length );
+console.log( 'Damage List' + ' ' + (20 - dmgList.diff(myList).length ));
+console.log( 'Flex List' + ' ' + (20 - flexList.diff(myList).length ));
+console.log( 'Support List' + ' ' + (20 - supportList.diff(myList).length ));
+console.log( 'Tank List' + ' ' + (20 - tankList.diff(myList).length ));

@@ -60,7 +60,6 @@ function difference(a1, a2) {
 
 $(document).ready(function() {
   function inject() {
-    console.log(results)
     for(var i = results.length-1; i > -1; i--) {
       $('#injectHTML').append('<li>' +  '<div><b>Bundle Name:</b> ' + results[i].arrayName + '</div>' + '<div><b>Number of heroes gained:</b> ' + results[i].count + '</div>' + '<div><b>List of heroes gained:</b> ' + results[i].heroList.join(", ") + '</div>' + '</li>');
     }
@@ -82,9 +81,8 @@ $(document).ready(function() {
 //   $.ajax({
 //     url: "https://api.hotslogs.com/Public/Data/Heroes"
 //   }).done(function(data) {
-//     newData = data;
-//     for(var i = 0; i< newData.length; i++) {
-//       $('#injectJS').append(newData.responseJSON["0"].PrimaryName);
+//     for(var i = 0; i< data.length; i++) {
+//       $('#injectJS').append(data["0"].PrimaryName);
 //     }
 //
 //   });

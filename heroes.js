@@ -15,7 +15,6 @@ var results = [];
 for(var i=0; i<4; i++) {
   var myObj = {};
   myObj.count = difference(array[i], myList).length;
-  myObj.arrayPosition = i;
   switch (i) {
     case 0:
       myObj.arrayName = "Assassin";
@@ -40,6 +39,10 @@ for(var i=0; i<4; i++) {
   results.push(myObj)
 }
 
+results.sort(function(a, b) {
+    return a.count - b.count;
+});
+
 function difference(a1, a2) {
   var result = [];
   for (var i = 0; i < a1.length; i++) {
@@ -49,12 +52,16 @@ function difference(a1, a2) {
   }
   return result;
 }
+
+var newData;
+
 $(document).ready(function() {
   $.ajax({
     url: "https://api.hotslogs.com/Public/Data/Heroes"
   }).done(function(data) {
-    for(var i = 0; i<data.length; i++) {
-      $('#injectJS').append(data.responseJSON["0"].PrimaryName);
+    newData = data;
+    for(var i = 0; i< newData.length; i++) {
+      $('#injectJS').append(newData.responseJSON["0"].PrimaryName);
     }
 
   });

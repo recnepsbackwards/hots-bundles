@@ -8,7 +8,7 @@ var array = [["Alarak", "Chromie", "Falstad", "Greymane", "Gul'dan", "Kael'thas"
 
 var myList = ["Zeratul", "Valla", "Nazeebo", "E.T.C.", "Nova", "Stiches", "Li Li", "Xul", "Illidan", "Sgt. Hammer", "Zagara", "Sonya", "Sylvanas", "Muradin", "Murky", "Cho", "Gall", "Tassadar", "Raynor", "Jaina", "Falstad", "Malfurion", "Greymane", "Kerrigan", "Tracer", "Azmodan", "Li-Ming", "Diablo", "Gaz", "Zarya", "Auriel"];
 
-var allHeroes = ["Abathur", "Alarak", "Anub'arak", "Artanis", "Arthas", "Auriel", "Azmodan", "Brightwing", "Cassia", "Chen", "Cho'gall", "Chromie", "Dehaka", "Diablo", "E.T.C.", "Falstad", "Gazlowe", "Genji", "Greymane", "Gul'dan", "Illidan", "Jaina", "Johanna", "Kael'thas", "Kerrigan", "Kharazim", "Leoric", "Li Li", "Li-Ming", "Lt. Morales", "Lunara", "Lúcio", "Malfurion", "Medivh", "Muradin", "Murky", "Nazeebo", "Nova", "Probius", "Ragnaros", "Raynor", "Rehgar", "Rexxar", "Samuro", "Sgt. Hammer", "Sonya", "Stitches", "Sylvanas", "Tassadar", "The Butcher", "The Lost Vikings", "Thrall", "Tracer", "Tychus", "Tyrael", "Tyrande", "Uther", "Valeera", "Valla", "Varian", "Xul", "Zagara", "Zarya", "Zeratul", "Zul'jin"];
+var allHeroes = ["Abathur", "Alarak", "Anub'arak", "Artanis", "Arthas", "Auriel", "Azmodan", "Brightwing", "The Butcher", "Cassia", "Chen", "Cho'gall", "Chromie", "Dehaka", "Diablo", "E.T.C.", "Falstad", "Gazlowe", "Genji", "Greymane", "Gul'dan", "Illidan", "Jaina", "Johanna", "Kael'thas", "Kerrigan", "Kharazim", "Leoric", "Li Li", "Li-Ming", "The Lost Vikings", "Lt. Morales", "Lunara", "Lúcio", "Malfurion", "Medivh", "Muradin", "Murky", "Nazeebo", "Nova", "Probius", "Ragnaros", "Raynor", "Rehgar", "Rexxar", "Samuro", "Sgt. Hammer", "Sonya", "Stitches", "Sylvanas", "Tassadar",  "Thrall", "Tracer", "Tychus", "Tyrael", "Tyrande", "Uther", "Valeera", "Valla", "Varian", "Xul", "Zagara", "Zarya", "Zeratul", "Zul'jin"];
 
 var userList = [];
 
@@ -61,13 +61,14 @@ function difference(a1, a2) {
 $(document).ready(function() {
   function inject() {
     for(var i = results.length-1; i > -1; i--) {
-      $('#injectHTML').append('<li>' +  '<div><b>Bundle Name:</b> ' + results[i].arrayName + '</div>' + '<div><b>Number of heroes gained:</b> ' + results[i].count + '</div>' + '<div><b>List of heroes gained:</b> ' + results[i].heroList.join(", ") + '</div>' + '</li>');
+      $('#injectHTML').append('<li class="list">' +  '<div><b>Bundle Name:</b> ' + results[i].arrayName + '</div>' + '<div><b>Number of heroes gained:</b> ' + results[i].count + '</div>' + '<div><b>List of heroes gained:</b> ' + results[i].heroList.join(", ") + '</div>' + '</li>');
     }
   }
   for(var i=0; i < allHeroes.length; i++) {
-    $('#allHeroes').append("<input type='checkbox' class='hero' name='checkbox' value=" + allHeroes[i] + ">" + allHeroes[i] + "<br>");
+    $('#allHeroes').append('<input type="checkbox" class="hero" name="checkbox" value="' + allHeroes[i] + '">' + allHeroes[i] + '<br>');
   }
   $('#submit').on('click', function(){
+    $('.list').remove();
     var checkedValue = $('.hero:checked');
     for (var i = 0; i <checkedValue.length; i++) {
       userList.push(checkedValue[i].value);

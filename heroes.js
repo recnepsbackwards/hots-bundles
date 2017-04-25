@@ -49,3 +49,15 @@ function difference(a1, a2) {
   }
   return result;
 }
+$(document).ready(function() {
+
+  $.ajax({
+    url: "https://api.hotslogs.com/Public/Data/Heroes"
+  }).done(function(data) {
+    for(var i = 0; i<data.length; i++) {
+      $('#injectJS').append(data.PrimaryName);
+    }
+
+  });
+
+});

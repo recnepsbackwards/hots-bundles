@@ -97,9 +97,6 @@ var searchRosters = function(obj, plyr) {
     for(var p=0; p<obj.length; p++) {
         for(var u=0; u<obj[p].length; u++) {
             if(obj[p][u] === plyr) {
-                console.log(obj[p]);
-                console.log(p);
-                console.log(obj);
                 document.querySelector('#injectHTML').innerHTML += '<li>'+league_arr[p].name+'</li>';
             }
         }
